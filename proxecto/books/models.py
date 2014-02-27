@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-Class Publisher(modesl.Model):
+class Publisher(models.Model):
     name = models.CharField(maxlength=30)
     address = models.CharField(maxlength=50)
     city = models.CharField(maxlength=60)
@@ -9,14 +9,14 @@ Class Publisher(modesl.Model):
     country = models.CharField(maxlength=50)
     website = models.URLField()
 
-Class Author(modesl.Model):
+class Author(models.Model):
     salutation = models.CharField(maxlength=10)
     first_name = models.CharField(maxlength=30)
     last_name = models.CharField(maxlength=40)
     email = models.EmailField()
     headshot = models.ImageField(upload_to='/tmp')
 
-Class Book(modesl.Model):
+class Book(models.Model):
     title = models.CharField(maxlength=100)
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)

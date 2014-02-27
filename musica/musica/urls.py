@@ -9,16 +9,16 @@ admin.autodiscover()
 
 ###### API REST ######
 # ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    model = User
-
-class GroupViewSet(viewsets.ModelViewSet):
-    model = Group
-
-    # Routers provide an easy way of automatically determining the URL conf.
-    router = routers.DefaultRouter()
-    router.register(r'users', UserViewSet)
-    router.register(r'groups', GroupViewSet)
+#class UserViewSet(viewsets.ModelViewSet):
+#    model = User
+#
+#class GroupViewSet(viewsets.ModelViewSet):
+#    model = Group
+#
+#    # Routers provide an easy way of automatically determining the URL conf.
+#    router = routers.DefaultRouter()
+#    router.register(r'users', UserViewSet)
+#    router.register(r'groups', GroupViewSet)
 
 
 
@@ -33,7 +33,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bodeapp/listamusicos', 'bodeapp.views.lista_musicos', name=u'lista_musicos'),
+    url(r'^bodeapp/search', 'bodeapp.views.search', name=u'search'),
 
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    ### API ###
+    #url(r'^', include(router.urls)),
+    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 )
